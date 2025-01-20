@@ -1,0 +1,108 @@
+.products {
+    padding: 20px;
+    background: linear-gradient(135deg, #fdfbfb, #ebedee);
+    margin: 20px auto;
+    max-width: 1200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.products .title {
+    font-size: 2rem;
+    text-align: center;
+    color: #ff6b6b;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.products .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.products .box {
+    background-color: #ffffff;
+    border: 1px solid #aee8d9;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.products .box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.products .box img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.products .box:hover img {
+    transform: scale(1.05);
+}
+
+.products .box .name {
+    font-size: 1.2rem;
+    color: #444;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.products .box .price {
+    font-size: 1rem;
+    color: #28a745;
+    margin-bottom: 10px;
+}
+
+.products .box .qty {
+    width: 60px;
+    padding: 5px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.products .box .btn,
+.products .box .option-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.products .box .btn {
+    background-color: #ff6b6b;
+    color: #ffffff;
+}
+
+.products .box .btn:hover {
+    background-color: #aee8d9;
+    color: #ff6b6b;
+}
+
+.products .box .option-btn {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.products .box .option-btn:hover {
+    background-color: #e0a800;
+}
+
+.products .empty {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 20px;
+}

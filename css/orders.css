@@ -1,0 +1,72 @@
+body {
+    background-image: url('css/12.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.placed-orders {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.85);
+    margin: 30px auto;
+    max-width: 1200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.placed-orders .title {
+    font-size: 2rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.placed-orders .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.placed-orders .box {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.placed-orders .box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.placed-orders .box p {
+    font-size: 1rem;
+    color: #555;
+    margin: 10px 0;
+}
+
+.placed-orders .box p span {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.placed-orders .box p span[style*="red"] {
+    color: red;
+    font-weight: bold;
+}
+
+.placed-orders .box p span[style*="green"] {
+    color: green;
+    font-weight: bold;
+}
+
+.empty {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 20px;
+}
