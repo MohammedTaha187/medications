@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('css/3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.update-product {
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    width: 100%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.update-product .title {
+    font-size: 2.2rem;
+    text-align: center;
+    color: #FF6B6B;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.update-product form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.update-product .box {
+    padding: 15px;
+    font-size: 1rem;
+    border: 1px solid #AEE8D9;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.update-product .box:focus {
+    border-color: #FF6B6B;
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 107, 107, 0.5);
+}
+
+.update-product .btn {
+    padding: 15px;
+    font-size: 1rem;
+    background-color: #FF6B6B;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.update-product .btn:hover {
+    background-color: #AEE8D9;
+    color: #FF6B6B;
+}
+
+.update-product .message {
+    background: #FFC9B9;
+    color: #FF6B6B;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.update-product .option-btn {
+    padding: 12px 20px;
+    background-color: #AEE8D9;
+    color: #FF6B6B;
+    text-decoration: none;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.update-product .option-btn:hover {
+    background-color: #202020;
+    color: #FF6B6B;
+}
+
+.update-product img {
+    max-width: 50%;
+    text-align: center;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}

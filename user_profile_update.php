@@ -17,11 +17,9 @@ if(isset($_POST['update_profile'])){
    $email = $_POST['email']; 
    $email = filter_var($email, FILTER_SANITIZE_STRING); 
 
-   
    $update_profile = $conn->prepare("UPDATE `users` SET name = ?, email = ? WHERE id = ?");
    $update_profile->execute([$name, $email, $user_id]);
 
-   
    $image = $_FILES['image']['name']; 
    $image = filter_var($image, FILTER_SANITIZE_STRING); 
    $image_size = $_FILES['image']['size']; 
@@ -43,7 +41,6 @@ if(isset($_POST['update_profile'])){
       }; 
    };
 
-   
    $old_pass = $_POST['old_pass']; 
    $update_pass = md5($_POST['update_pass']); 
    $update_pass = filter_var($update_pass, FILTER_SANITIZE_STRING); 
@@ -63,8 +60,12 @@ if(isset($_POST['update_profile'])){
          $message[] = 'تم تحديث كلمة المرور بنجاح!'; 
       } 
    }
-
 }
+
+// جلب بيانات المستخدم من قاعدة البيانات
+$select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
+$select_profile->execute([$user_id]);
+$fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -77,9 +78,7 @@ if(isset($_POST['update_profile'])){
    <title>تحديث ملف المستخدم</title>
 
  <link rel="stylesheet" href="css/style2.css">
- <link rel="stylesheet" href="css/user_profile_update.css">
-
-
+ <link rel="stylesheet" href="css/user_profile_updates.css">
 </head>
 <body>
    
@@ -90,7 +89,13 @@ if(isset($_POST['update_profile'])){
    <h1 class="title">تحديث الملف الشخصي</h1>
 
    <form action="" method="POST" enctype="multipart/form-data">
-      <img src="uploaded_img/<?= $fetch_profile['image']; ?>" alt="">
+      <?php if ($fetch_profile): ?>
+         <div class="image-box">
+   <img src="uploaded_img/<?= $fetch_profile['image']; ?>" alt="" class="profile-image">   
+</div>
+      <?php else: ?>
+         <p>لا يوجد صورة حالياً</p>
+      <?php endif; ?>
       <div class="flex">
          <div class="inputBox">
             <span>اسم المستخدم :</span>

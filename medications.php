@@ -43,12 +43,11 @@ if(isset($_POST['add_to_cart'])){
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Medications</title>
    <link rel="stylesheet" href="css/style2.css">
-   <link rel="stylesheet" href="css/product.css">
-
+   <link rel="stylesheet" href="./css/products.css">
 
 </head>
 <body>
-<?php include('header.php') ?>
+<?php include 'header.php'; ?>
 <section class="medications-category">
       <h2 class="medications-category-title">Categories</h2>
       <div class="medications-category-links">
@@ -82,7 +81,6 @@ if(isset($_POST['add_to_cart'])){
             <input type="hidden" name="p_price" value="<?= $fetch_products['price']; ?>">
             <input type="hidden" name="p_image" value="<?= $fetch_products['image']; ?>">
             <input type="number" min="1" value="1" name="p_qty" class="medications-product-qty">
-            <input type="submit" value="Add to Wishlist" class="medications-option-btn" name="add_to_wishlist">
             <input type="submit" value="Add to Cart" class="medications-add-btn" name="add_to_cart">
          </form>
          <?php
@@ -95,7 +93,6 @@ if(isset($_POST['add_to_cart'])){
    </section>
    <?php include 'footer.php'; ?>
 
-<script src="js/script.js"></script>
 <script src="./js/header.js" ></script>
 
 </body>

@@ -35,7 +35,7 @@ if(isset($_POST['submit'])){
 
          if($insert){
             // Check image size before uploading
-            if($image_size > 2000000){
+            if($image_size > 2000000000000000){
                $message[] = 'Image size is too large!';
             }else{
                move_uploaded_file($image_tmp_name, $image_folder);

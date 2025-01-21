@@ -1,0 +1,154 @@
+.header {
+    text-align: center;
+    background: #f1a0a9;
+    padding: 0rem 0;
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+.header .flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    margin: 0 auto;
+    max-width: 1200px;
+    position: relative;
+}
+
+
+.header .flex .logo {
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+
+.header .flex .logo span {
+    color: #AEE8D9;
+}
+
+
+.header .flex .navbar a {
+    margin: 0 1rem;
+    font-size: 1.8rem;
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.header .flex .navbar a:hover {
+    text-decoration: underline;
+    color: #AEE8D9;
+}
+
+
+.header .flex .icons>* {
+    font-size: 2.5rem;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 1.5rem;
+}
+
+
+.header .flex .icons>*:hover {
+    color: #AEE8D9;
+}
+
+.header .flex .icons a span,
+.header .flex .icons a i {
+    color: #fff;
+}
+
+
+.header .flex .icons a:hover span,
+.header .flex .icons a:hover i {
+    color: #AEE8D9;
+}
+
+
+.header .flex .profile {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: .5rem;
+    padding: 1.5rem;
+    text-align: center;
+    background-color: #fff;
+    width: 25rem;
+    display: none;
+    animation: fadeIn .3s ease-in-out;
+    z-index: 1000;
+}
+
+
+.header .flex .profile.active {
+    display: block;
+}
+
+
+.header .flex .profile img {
+    height: 10rem;
+    width: 10rem;
+    margin-bottom: 1rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #f1a0a9;
+}
+
+
+.header .flex .profile p {
+    padding: .5rem 0;
+    font-size: 1.6rem;
+    color: #444;
+    font-weight: bold;
+}
+
+
+.header .flex .profile .btn,
+.header .flex .profile .delete-btn,
+.header .flex .profile .option-btn {
+    display: block;
+    padding: .8rem 1.5rem;
+    margin: .5rem 0;
+    font-size: 1.4rem;
+    color: #fff;
+    background-color: #f1a0a9;
+    border-radius: .3rem;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color .3s ease;
+}
+
+.header .flex .profile .btn:hover,
+.header .flex .profile .delete-btn:hover,
+.header .flex .profile .option-btn:hover {
+    background-color: #d98b91;
+}
+
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+
+@media (max-width: 768px) {
+    .header .flex .profile {
+        right: 1rem;
+        width: 90%;
+    }
+}
+
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}

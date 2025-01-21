@@ -1,4 +1,3 @@
-
 body {
     margin: 0;
     padding: 0;
@@ -10,7 +9,6 @@ body {
     color: #333;
 }
 
-
 main {
     display: flex;
     justify-content: center;
@@ -19,7 +17,6 @@ main {
     padding: 20px;
     box-sizing: border-box;
 }
-
 
 .update-profile {
     padding: 40px;
@@ -88,4 +85,42 @@ main {
     text-align: center;
     font-size: 1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.update-profile .option-btn {
+    padding: 12px 20px;
+    background-color: #AEE8D9;
+    color: #FF6B6B;
+    text-decoration: none;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.update-profile .option-btn:hover {
+    background-color: #202020;
+    color: #FF6B6B;
+}
+
+.image-box {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #FF6B6B;
+}
+
+.box-img {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #AEE8D9;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #555;
+    background-color: #f9f9f9;
 }

@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('css/3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.user-accounts {
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 900px;
+    width: 100%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.user-accounts .title {
+    font-size: 2.2rem;
+    color: #FF6B6B;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.user-accounts .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.user-accounts .box {
+    padding: 20px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.user-accounts .box:hover {
+    transform: translateY(-5px);
+}
+
+.user-accounts .box img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.user-accounts .box p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.user-accounts .box p span {
+    color: #FF6B6B;
+    font-weight: bold;
+}
+
+.user-accounts .box .delete-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #FF6B6B;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.user-accounts .box .delete-btn:hover {
+    background-color: #AEE8D9;
+    color: #FF6B6B;
+}
+
+.user-accounts .box .delete-btn:active {
+    transform: scale(0.98);
+}

@@ -1,0 +1,142 @@
+/* الصفحة الرئيسية لتصميم البحث */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #FFC9B9, #AEE8D9);
+    color: #333;
+}
+
+.search-form {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.search-form .box {
+    width: 70%;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.search-form .btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: #FF6B6B;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.search-form .btn:hover {
+    background-color: #AEE8D9;
+    color: #333;
+}
+
+.products {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 1200px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.box {
+    background-color: #ffffff;
+    border: 1px solid #AEE8D9;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.box img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.box:hover img {
+    transform: scale(1.05);
+}
+
+.box .price {
+    font-size: 1.2rem;
+    color: #28a745;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.box .name {
+    font-size: 1rem;
+    color: #444;
+    margin: 10px 0;
+}
+
+.box .qty {
+    width: 60px;
+    padding: 5px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.box .option-btn, .box .btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.box .option-btn {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.box .option-btn:hover {
+    background-color: #e0a800;
+}
+
+.box .btn {
+    background-color: #FF6B6B;
+    color: #ffffff;
+}
+
+.box .btn:hover {
+    background-color: #AEE8D9;
+    color: #FF6B6B;
+}
+
+.empty {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 20px;
+}

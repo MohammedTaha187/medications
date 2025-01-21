@@ -60,7 +60,7 @@ function handleCart($conn, $user_id, $pid, $p_name, $p_price, $p_image, $p_qty)
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style2.css">
-    <link rel="stylesheet" href="css/category.css">
+    <link rel="stylesheet" href="css/categorys.css">
 
 </head>
 
@@ -89,7 +89,6 @@ function handleCart($conn, $user_id, $pid, $p_name, $p_price, $p_image, $p_qty)
                         <input type="hidden" name="p_price" value="<?= $product['price']; ?>">
                         <input type="hidden" name="p_image" value="<?= $product['image']; ?>">
                         <input type="number" name="p_qty" class="qty" min="1" max="100" value="1">
-                        <input type="submit" value="Add to Wishlist" class="option-btn" name="add_to_wishlist">
                         <input type="submit" value="Add to Cart" class="btn" name="add_to_cart">
                     </form>
             <?php

@@ -1,0 +1,124 @@
+body {
+    background: linear-gradient(135deg, #FFC9B9, #AEE8D9);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    background-color: #FF6B6B;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.header .navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.header .navbar a:hover {
+    color: #AEE8D9;
+}
+
+.placed-orders {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.placed-orders .title {
+    font-size: 2rem;
+    text-align: center;
+    color: #FF6B6B;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.placed-orders .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.placed-orders .box {
+    background-color: #ffffff;
+    border: 1px solid #AEE8D9;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.placed-orders .box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.placed-orders .box p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.placed-orders .box .drop-down {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: 1px solid #AEE8D9;
+    background-color: #f7f7f7;
+}
+
+.placed-orders .box .flex-btn {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.placed-orders .box .option-btn {
+    background-color: #FF6B6B;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.placed-orders .box .option-btn:hover {
+    background-color: #AEE8D9;
+}
+
+.placed-orders .box .delete-btn {
+    background-color: #FF6B6B;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.placed-orders .box .delete-btn:hover {
+    background-color: #AEE8D9;
+    color: #FF6B6B;
+}
+
+.placed-orders .box .empty {
+    text-align: center;
+    color: #FF6B6B;
+    font-size: 1.2rem;
+}

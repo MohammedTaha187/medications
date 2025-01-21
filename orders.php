@@ -21,7 +21,7 @@ if(!isset($user_id)){
    <title>orders</title>
 
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-   <link rel="stylesheet" href="css/orders.css">
+   <link rel="stylesheet" href="css/order.css">
    <link rel="stylesheet" href="css/style2.css">
 
 </head>
@@ -51,6 +51,23 @@ if(!isset($user_id)){
       <p> your orders : <span><?= $fetch_orders['total_products']; ?></span> </p>
       <p> total price : <span>$<?= $fetch_orders['total_price']; ?>/-</span> </p>
       <p> payment status : <span style="color:<?php if($fetch_orders['payment_status'] == 'pending'){ echo 'red'; }else{ echo 'green'; }; ?>"><?= $fetch_orders['payment_status']; ?></span> </p>
+
+      <!-- Rating section -->
+      <form action="submit_rating.php" method="POST">
+         <label for="rating">Rate this order: </label>
+         <select name="rating" id="rating">
+            <option value="1">1 Star</option>
+            <option value="2">2 Stars</option>
+            <option value="3">3 Stars</option>
+            <option value="4">4 Stars</option>
+            <option value="5">5 Stars</option>
+         </select>
+         <input type="hidden" name="order_id" value="<?= $fetch_orders['id']; ?>">
+         <button type="submit" name="submit_rating">Submit Rating</button>
+      </form>
+
+      <!-- Display rating -->
+      <p> Rating : <span><?= $fetch_orders['rating'] ? $fetch_orders['rating'] . ' Stars' : 'Not rated yet'; ?></span> </p>
    </div>
    <?php
       }
@@ -66,7 +83,6 @@ if(!isset($user_id)){
 
 <script src="js/script.js"></script>
 <script src="./js/header.js" ></script>
-
 
 </body>
 </html>

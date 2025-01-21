@@ -11,6 +11,12 @@ if(isset($message)){
    }
 }
 
+// حساب عدد المنتجات في السلة
+$user_id = $_SESSION['user_id'];
+$cart_count = $conn->prepare("SELECT COUNT(*) FROM `cart` WHERE user_id = ?");
+$cart_count->execute([$user_id]);
+$count = $cart_count->fetchColumn();
+
 ?>
 <header class="header">
    <div class="flex">
@@ -24,7 +30,10 @@ if(isset($message)){
 
       <div class="icons">
          <div id="user-btn" class="fas fa-user"></div>
-         <a href="cart.php"><i class="fas fa-shopping-cart"></i><span></span></a>
+         <a href="cart.php">
+            <i class="fas fa-shopping-cart"></i>
+            <span><?php echo $count; ?></span> <!-- عرض عدد المنتجات هنا -->
+         </a>
       </div>
 
       <div class="profile">

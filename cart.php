@@ -50,7 +50,7 @@ if (isset($_POST['update_qty'])) {
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style2.css">
-   <link rel="stylesheet" href="css/cart.css">
+   <link rel="stylesheet" href="css/carts.css">
 
 </head>
 <body>
@@ -71,7 +71,6 @@ if (isset($_POST['update_qty'])) {
          while ($fetch_cart = $select_cart->fetch(PDO::FETCH_ASSOC)) { 
    ?>
    <form action="" method="POST" class="box">
-      <a href="cart.php?delete=<?= $fetch_cart['id']; ?>" class="fas fa-times" onclick="return confirm('delete this from cart?');"></a>
       <a href="view_page.php?pid=<?= $fetch_cart['pid']; ?>" class="fas fa-eye"></a>
       <img src="uploaded_img/<?= htmlspecialchars($fetch_cart['image']); ?>" alt="">
       <div class="name"><?= htmlspecialchars($fetch_cart['name']); ?></div>
@@ -94,7 +93,7 @@ if (isset($_POST['update_qty'])) {
 
    <div class="cart-total">
       <p>grand total : <span>$<?= $grand_total; ?></span></p>
-      <a href="shop.php" class="option-btn">continue shopping</a>
+      <a href="medications.php" class="option-btn">continue shopping</a>
       <a href="cart.php?delete_all" class="delete-btn <?= ($grand_total > 1) ? '' : 'disabled'; ?>">delete all</a>
       <a href="checkout.php" class="btn <?= ($grand_total > 1) ? '' : 'disabled'; ?>">proceed to checkout</a>
    </div>

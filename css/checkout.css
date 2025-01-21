@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('css/12.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.display-orders p,
+.checkout-orders .inputBox span {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.checkout-orders .flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.checkout-orders .inputBox {
+    width: 48%;
+    margin-bottom: 20px;
+}
+
+.checkout-orders .inputBox input,
+.checkout-orders .inputBox select {
+    padding: 15px;
+    font-size: 1rem;
+    border: 1px solid #AEE8D9;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.checkout-orders .inputBox input:focus,
+.checkout-orders .inputBox select:focus {
+    border-color: #FF6B6B;
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 107, 107, 0.5);
+}
+
+.checkout-orders .btn {
+    padding: 15px;
+    font-size: 1.2rem;
+    background-color: #FF6B6B;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.checkout-orders .btn:hover {
+    background-color: #AEE8D9;
+    color: #FF6B6B;
+}
+
+.checkout-orders .grand-total {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-top: 30px;
+    color: #FF6B6B;
+}
+
+.empty {
+    color: #FF6B6B;
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+.empty a {
+    color: #FF6B6B;
+    text-decoration: none;
+}
+
+.empty a:hover {
+    text-decoration: underline;
+}
