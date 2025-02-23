@@ -1,14 +1,14 @@
 <?php
+include 'check_login.php'; 
+@include 'config.php';
 
-@include 'config.php'; 
+$user_id = $_SESSION['user_id'];
 
-session_start(); 
+if (!isset($user_id)) {
+    header('location:login.php');
+    exit();
+}
 
-$user_id = $_SESSION['user_id']; 
-
-if(!isset($user_id)){ 
-   header('location:login.php'); 
-};
 
 if(isset($_POST['update_profile'])){ 
 

@@ -129,7 +129,8 @@ if(!isset($admin_id)){
 
       <div class="box">
       <?php
-         $select_messages = $conn->prepare("SELECT * FROM `message`");
+         $select_messages = $conn->prepare("SELECT * FROM `messages`");
+
          $select_messages->execute();
          $number_of_messages = $select_messages->rowCount();
       ?>

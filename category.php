@@ -1,8 +1,6 @@
 <?php
-
+include 'check_login.php'; 
 @include 'config.php';
-
-session_start();
 
 $user_id = $_SESSION['user_id'];
 
@@ -10,6 +8,8 @@ if (!isset($user_id)) {
     header('location:login.php');
     exit();
 }
+
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pid = filter_var($_POST['pid'], FILTER_SANITIZE_STRING);
@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         handleCart($conn, $user_id, $pid, $p_name, $p_price, $p_image, $p_qty);
     }
 }
+
 function handleCart($conn, $user_id, $pid, $p_name, $p_price, $p_image, $p_qty)
 {
     $check_cart = $conn->prepare("SELECT * FROM `cart` WHERE name = ? AND user_id = ?");
@@ -30,14 +31,6 @@ function handleCart($conn, $user_id, $pid, $p_name, $p_price, $p_image, $p_qty)
     if ($check_cart->rowCount() > 0) {
         $GLOBALS['message'][] = 'Already added to cart!';
     } else {
-        $check_wishlist = $conn->prepare("SELECT * FROM `wishlist` WHERE name = ? AND user_id = ?");
-        $check_wishlist->execute([$p_name, $user_id]);
-
-        if ($check_wishlist->rowCount() > 0) {
-            $delete_wishlist = $conn->prepare("DELETE FROM `wishlist` WHERE name = ? AND user_id = ?");
-            $delete_wishlist->execute([$p_name, $user_id]);
-        }
-
         $add_to_cart = $conn->prepare("INSERT INTO `cart`(user_id, pid, name, price, quantity, image) VALUES(?,?,?,?,?,?)");
         $add_to_cart->execute([$user_id, $pid, $p_name, $p_price, $p_qty, $p_image]);
         $GLOBALS['message'][] = 'Added to cart!';
@@ -102,8 +95,7 @@ function handleCart($conn, $user_id, $pid, $p_name, $p_price, $p_image, $p_qty)
 
     <?php include 'footer.php'; ?>
     <script src="js/script.js"></script>
-    <script src="./js/header.js" ></script>
-
+    <script src="./js/header.js"></script>
 
 </body>
 

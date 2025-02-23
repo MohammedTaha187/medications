@@ -1,43 +1,37 @@
 <?php
+include 'check_login.php'; 
 @include 'config.php';
-
-if (!$conn) {
-    die("Database connection failed");
-}
-
-session_start();
 
 $user_id = $_SESSION['user_id'];
 
-if(!isset($user_id)){
-   header('location:login.php');
-   exit; 
+if (!isset($user_id)) {
+    header('location:login.php');
+    exit();
 }
 
 if(isset($_POST['send'])){
-
    $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL); 
    $number = filter_var($_POST['number'], FILTER_SANITIZE_STRING);
    $msg = filter_var($_POST['msg'], FILTER_SANITIZE_STRING);
 
-   $select_message = $conn->prepare("SELECT * FROM `message` WHERE name = ? AND email = ? AND number = ? AND message = ?");
-   $select_message->execute([$name, $email, $number, $msg]);
+   $select_messages = $conn->prepare("SELECT * FROM `messages` WHERE name = ? AND email = ? AND number = ? AND message = ?");
+   $select_messages->execute([$name, $email, $number, $msg]);
 
-   if($select_message->rowCount() > 0){
+   if($select_messages->rowCount() > 0){
       $message[] = 'تم إرسال الرسالة مسبقًا!';
    }else{
-      $insert_message = $conn->prepare("INSERT INTO `message`(user_id, name, email, number, message) VALUES(?,?,?,?,?)");
-      $insert_message->execute([$user_id, $name, $email, $number, $msg]);
+      $insert_messages = $conn->prepare("INSERT INTO `messages`(user_id, name, email, number, message) VALUES(?,?,?,?,?)");
+      $insert_messages->execute([$user_id, $name, $email, $number, $msg]);
 
       $message[] = 'تم إرسال الرسالة بنجاح!';
    }
 }
 
 // استرجاع الرسائل والردود
-$select_message_response = $conn->prepare("SELECT * FROM `message` WHERE user_id = ? ORDER BY id DESC LIMIT 1");
-$select_message_response->execute([$user_id]);
-$fetch_message = $select_message_response->fetch(PDO::FETCH_ASSOC);
+$select_messages_response = $conn->prepare("SELECT * FROM `messages` WHERE user_id = ? ORDER BY id DESC LIMIT 1");
+$select_messages_response->execute([$user_id]);
+$fetch_messages = $select_messages_response->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +50,6 @@ $fetch_message = $select_message_response->fetch(PDO::FETCH_ASSOC);
 <?php include 'header.php'; ?>
 
 <section class="contact">
-
    <h1 class="title">Get in Touch</h1>
 
    <?php
@@ -76,10 +69,10 @@ $fetch_message = $select_message_response->fetch(PDO::FETCH_ASSOC);
    </form>
 
    <!-- عرض الرد في حال وجوده -->
-   <?php if(isset($fetch_message['response']) && !empty($fetch_message['response'])): ?>
+   <?php if(isset($fetch_messages['response']) && !empty($fetch_messages['response'])): ?>
       <div class="response">
          <h2>Admin's Response:</h2>
-         <p><?= htmlspecialchars($fetch_message['response']); ?></p>
+         <p><?= htmlspecialchars($fetch_messages['response']); ?></p>
       </div>
    <?php endif; ?>
 
@@ -87,7 +80,7 @@ $fetch_message = $select_message_response->fetch(PDO::FETCH_ASSOC);
 <?php include 'footer.php'; ?>
 
 <script src="js/script.js"></script>
-<script src="./js/header.js" ></script>
+<script src="./js/header.js"></script>
 
 </body>
 </html>

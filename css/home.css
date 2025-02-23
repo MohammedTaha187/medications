@@ -1,0 +1,268 @@
+@import url(./style2.css);
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #FFC9B9, #AEE8D9);
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.background-section {
+    background-image: url('../img/path-to-your-image.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 60px 20px;
+    text-align: center;
+    color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #444;
+    
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.search-form form {
+    display: flex;
+    width: 60%;
+}
+
+.search-form .box {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    outline: none;
+    margin-right: 10px;
+}
+
+.search-form .btn {
+    padding: 15px 25px;
+    background: #FF6B6B;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search-form .btn:hover {
+    background: #E63946;
+}
+
+
+.discover {
+    margin-top: 20px;
+}
+
+.discover p {
+    font-size: 1.5rem;
+    color:#000000;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+
+}
+
+.discover .btn {
+    padding: 10px 25px;
+    background: #FF6B6B;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    transition: background 0.3s ease;
+}
+
+.discover .btn:hover {
+    background: #AEE8D9;
+    color: #FF6B6B;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 30px;
+    margin-top: 20px;
+    flex-grow: 1;
+}
+
+.category {
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+.category img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.category:hover img {
+    transform: scale(1.05);
+}
+
+.category h3 {
+    font-size: 1.2rem;
+    color: #444;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.category p {
+    font-size: 1rem;
+    color: #666;
+    text-align: center;
+    padding: 0 15px;
+    margin-bottom: 15px;
+}
+
+.category a {
+    padding: 10px 25px;
+    background: #FF6B6B;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.category a:hover {
+    background: #AEE8D9;
+    color: #FF6B6B;
+}
+
+@media (max-width: 1200px) {
+    .categories {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .categories {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+    opacity: 0;
+    animation: float 5s infinite;
+}
+
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-100vh) scale(1.2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.title,
+.search-bar,
+.categories .category {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.category {
+    animation-delay: 0.5s;
+}
+
+.search-bar {
+    animation-delay: 1s;
+}
+
+.fade-effect {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease-in-out;
+}
+
+.fade-effect.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeInImage {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+img.fade-effect {
+    opacity: 0;
+    animation: fadeInImage 1.5s ease-in-out forwards;
+}
+
+img.fade-effect.show {
+    opacity: 1;
+}
+

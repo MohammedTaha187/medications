@@ -12,17 +12,17 @@ if(!isset($admin_id)){
 
 if(isset($_GET['delete'])){
    $delete_id = $_GET['delete'];
-   $delete_message = $conn->prepare("DELETE FROM `message` WHERE id = ?");
-   $delete_message->execute([$delete_id]);
+   $delete_messages = $conn->prepare("DELETE FROM `messages` WHERE id = ?");
+   $delete_messages->execute([$delete_id]);
    header('location:admin_contacts.php');
 }
 
 if(isset($_POST['respond'])){
-   $message_id = $_POST['message_id'];
+   $messages_id = $_POST['messages_id'];
    $response = filter_var($_POST['response'], FILTER_SANITIZE_STRING);
 
-   $update_response = $conn->prepare("UPDATE `message` SET `response` = ? WHERE id = ?");
-   $update_response->execute([$response, $message_id]);
+   $update_response = $conn->prepare("UPDATE `messages` SET `response` = ? WHERE id = ?");
+   $update_response->execute([$response, $messages_id]);
 
    header('location:admin_contacts.php');  // إعادة التوجيه بعد الرد
 }
@@ -35,7 +35,7 @@ if(isset($_POST['respond'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>messages</title>
+   <title>messagess</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -63,35 +63,35 @@ if(isset($_POST['respond'])){
    <div class="box-container">
 
    <?php
-      $select_message = $conn->prepare("SELECT * FROM `message`");
-      $select_message->execute();
-      if($select_message->rowCount() > 0){
-         while($fetch_message = $select_message->fetch(PDO::FETCH_ASSOC)){
+      $select_messages = $conn->prepare("SELECT * FROM `messages`");
+      $select_messages->execute();
+      if($select_messages->rowCount() > 0){
+         while($fetch_messages = $select_messages->fetch(PDO::FETCH_ASSOC)){
    ?>
    <div class="box">
-      <p> user id : <span><?= $fetch_message['user_id']; ?></span> </p>
-      <p> name : <span><?= $fetch_message['name']; ?></span> </p>
-      <p> number : <span><?= $fetch_message['number']; ?></span> </p>
-      <p> email : <span><?= $fetch_message['email']; ?></span> </p>
-      <p> message : <span><?= $fetch_message['message']; ?></span> </p>
+      <p> user id : <span><?= $fetch_messages['user_id']; ?></span> </p>
+      <p> name : <span><?= $fetch_messages['name']; ?></span> </p>
+      <p> number : <span><?= $fetch_messages['number']; ?></span> </p>
+      <p> email : <span><?= $fetch_messages['email']; ?></span> </p>
+      <p> messages : <span><?= $fetch_messages['message']; ?></span> </p>
 
       <!-- الرد على الرسالة -->
-      <?php if(empty($fetch_message['response'])): ?>
+      <?php if(empty($fetch_messages['response'])): ?>
          <form action="" method="POST">
             <textarea name="response" placeholder="Write your response here" required></textarea>
-            <input type="hidden" name="message_id" value="<?= $fetch_message['id']; ?>">
+            <input type="hidden" name="messages_id" value="<?= $fetch_messages['id']; ?>">
             <button type="submit" name="respond" class="btn">Respond</button>
          </form>
       <?php else: ?>
-         <p>Response: <span><?= $fetch_message['response']; ?></span></p>
+         <p>Response: <span><?= $fetch_messages['response']; ?></span></p>
       <?php endif; ?>
 
-      <a href="admin_contacts.php?delete=<?= $fetch_message['id']; ?>" onclick="return confirm('delete this message?');" class="delete-btn">delete</a>
+      <a href="admin_contacts.php?delete=<?= $fetch_messages['id']; ?>" onclick="return confirm('delete this messages?');" class="delete-btn">delete</a>
    </div>
    <?php
          }
       }else{
-         echo '<p class="empty">you have no messages!</p>';
+         echo '<p class="empty">you have no messagess!</p>';
       }
    ?>
 

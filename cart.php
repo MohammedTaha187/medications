@@ -1,15 +1,14 @@
 <?php
-
+include 'check_login.php'; 
 @include 'config.php';
-
-session_start();
 
 $user_id = $_SESSION['user_id'];
 
 if (!isset($user_id)) {
     header('location:login.php');
-    exit; // استخدام exit بعد الهيدر لتحسين الأمان
+    exit();
 }
+
 
 if (isset($_GET['delete'])) {
     $delete_id = $_GET['delete'];

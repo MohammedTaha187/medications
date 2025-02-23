@@ -1,14 +1,14 @@
 <?php
-
+include 'check_login.php'; 
 @include 'config.php';
-
-session_start();
 
 $user_id = $_SESSION['user_id'];
 
-if(!isset($user_id)){
-   header('location:login.php');
-};
+if (!isset($user_id)) {
+    header('location:login.php');
+    exit();
+}
+
 ?>
 
 
@@ -20,7 +20,7 @@ if(!isset($user_id)){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Pharmacy</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/home.css">
 </head>
 <body>
    <?php include('header.php') ?>
@@ -28,10 +28,14 @@ if(!isset($user_id)){
    <div class="background-section">
     <div class="title">Online Pharmacy</div>
 
-    <div class="search-bar">
-        <input type="text" placeholder="Search for products...">
-        <button>Search</button>
-    </div>
+    <section class="search-form">
+   <form action="search_page.php" method="GET">
+      <input type="text" class="box" name="search_box" placeholder="search products..." value="<?= isset($_GET['search_box']) ? htmlspecialchars($_GET['search_box']) : '' ?>">
+      <input type="submit" value="Search" class="btn">
+   </form>
+</section>
+
+
 
     <div class="discover">
         <p>Discover a wide range of medicines and health products.</p>

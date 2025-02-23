@@ -11,11 +11,7 @@ if(isset($message)){
    }
 }
 
-// حساب عدد المنتجات في السلة
-$user_id = $_SESSION['user_id'];
-$cart_count = $conn->prepare("SELECT COUNT(*) FROM `cart` WHERE user_id = ?");
-$cart_count->execute([$user_id]);
-$count = $cart_count->fetchColumn();
+
 
 ?>
 <header class="header">
@@ -30,20 +26,27 @@ $count = $cart_count->fetchColumn();
 
       <div class="icons">
          <div id="user-btn" class="fas fa-user"></div>
-         <a href="cart.php">
-            <i class="fas fa-shopping-cart"></i>
-            <span><?php echo $count; ?></span> <!-- عرض عدد المنتجات هنا -->
-         </a>
+         <?php
+            $count_cart_items = $conn->prepare("SELECT * FROM `cart` WHERE user_id = ?");
+            $count_cart_items->execute([$user_id]);
+         ?>
+         <a href="cart.php"><i class="fas fa-shopping-cart"></i><span>(<?= $count_cart_items->rowCount(); ?>)</span></a>
+
       </div>
 
       <div class="profile">
-         <img src="uploaded_img/" alt="">
-         <p>Welcome, User!</p>
-         <a href="user_profile_update.php" class="btn">Update Profile</a>
-         <a href="logout.php" class="delete-btn">Logout</a>
+         <?php
+            $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
+            $select_profile->execute([$user_id]);
+            $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+         ?>
+         <img src="uploaded_img/<?= $fetch_profile['image']; ?>" alt="">
+         <p><?= $fetch_profile['name']; ?></p>
+         <a href="user_profile_update.php" class="btn">update profile</a>
+         <a href="logout.php" class="delete-btn">logout</a>
          <div class="flex-btn">
-            <a href="login.php" class="option-btn">Login</a>
-            <a href="register.php" class="option-btn">Register</a>
+            <a href="login.php" class="option-btn">login</a>
+            <a href="register.php" class="option-btn">register</a>
          </div>
       </div>
    </div>
